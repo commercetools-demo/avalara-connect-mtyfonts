@@ -1,0 +1,10 @@
+query OrderStates($locale: Locale) {
+  states(where: "type=\"OrderState\"") {
+    results {
+      id
+      key
+      name(locale: $locale)
+      type
+    }
+  }
+}

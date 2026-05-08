@@ -1,0 +1,132 @@
+deployAs:
+  - name: service
+    applicationType: service
+    endpoint: /service
+    scripts:
+      postDeploy: npm install && npm run build && npm run connector:post-deploy
+      preUndeploy: npm install && npm run build && npm run connector:pre-undeploy
+    configuration:
+      standardConfiguration:
+        - key: CTP_REGION
+          description: commercetools Composable Commerce API region
+          required: true
+        - key: CUSTOM_SHIPPING_CUSTOM_TYPE_KEY
+          description: Custom type key for custom shipping
+          required: true
+          default: 'avalara-connector-custom-shipping'
+        - key: CUSTOM_SHIPPING_CUSTOM_TYPE_NAME
+          description: Custom type name for custom shipping
+          required: true
+          default: 'Additional field to store Avalara Tax codes for custom shipping'
+        - key: CUSTOM_LINE_ITEM_CUSTOM_TYPE_KEY
+          description: Custom type key for custom line item
+          required: true
+          default: 'avalara-connector-custom-line-item'
+        - key: CUSTOM_LINE_ITEM_CUSTOM_TYPE_NAME
+          description: Custom type name for custom line item
+          required: true
+          default: 'Additional field to store Avalara Tax codes for custom line items'
+        - key: CATEGORY_CUSTOM_TYPE_KEY
+          description: Custom type key for category
+          required: true
+          default: 'avalara-connector-category'
+        - key: CATEGORY_CUSTOM_TYPE_NAME
+          description: Custom type name for category
+          required: true
+          default: 'Additional field to store Avalara Tax codes for categories'
+        - key: SHIPPING_METHOD_CUSTOM_TYPE_KEY
+          description: Custom type key for shipping method
+          required: true
+          default: 'avalara-connector-shipping-method'
+        - key: SHIPPING_METHOD_CUSTOM_TYPE_NAME
+          description: Custom type name for shipping method
+          required: true
+          default: 'Additional field to store Avalara Tax codes for shipping methods'
+        - key: CUSTOMER_CUSTOM_TYPE_KEY
+          description: Custom type key for customer
+          required: true
+          default: 'avalara-connector-customer'
+        - key: CUSTOMER_CUSTOM_TYPE_NAME
+          description: Custom type name for customer
+          required: true
+          default: 'Additional field to store Avalara Entity Use (Exemption) codes for customers'
+        - key: ORDER_CUSTOM_TYPE_KEY
+          description: Custom type key for order
+          required: true
+          default: 'avalara-connector-order'
+        - key: ORDER_CUSTOM_TYPE_NAME
+          description: Custom type name for order
+          required: true
+          default: 'Additional field to store cart hash'
+        - key: AVATAX_PRODUCT_ATTRIBUTE_NAME
+          description: Product attribute name to store Avalara Tax codes
+          required: false
+          default: 'avatax-code'
+      securedConfiguration:
+        - key: CTP_PROJECT_KEY
+          description: commercetools Composable Commerce project key
+          required: true
+        - key: CTP_CLIENT_ID
+          description: commercetools Composable Commerce client ID
+          required: true
+        - key: CTP_CLIENT_SECRET
+          description: commercetools Composable Commerce client secret
+          required: true
+        - key: CTP_SCOPE
+          description: commercetools Composable Commerce client scope
+          required: true
+        - key: AVALARA_USERNAME
+          description: Avalara Backoffice Account Number
+          required: true
+        - key: AVALARA_PASSWORD
+          description: Avalara Backoffice License Key
+          required: true
+        - key: AVALARA_COMPANY_CODE
+          description: Avalara Backoffice Company Code
+          required: true
+        - key: AVALARA_ENV
+          description: Avalara Backoffice Environment
+          required: true
+        - key: FRONTEND_API_KEY
+          description: Frontend API Key for address validation tool
+          required: false
+  - name: event
+    applicationType: event
+    endpoint: /event
+    scripts:
+      postDeploy: npm install && npm run build && npm run connector:post-deploy
+      preUndeploy: npm install && npm run build && npm run connector:pre-undeploy
+    configuration:
+      standardConfiguration:
+        - key: CTP_REGION
+          description: commercetools Composable Commerce API region
+          required: true
+        - key: AVATAX_PRODUCT_ATTRIBUTE_NAME
+          description: Product attribute name to store Avalara Tax codes
+          required: false
+          default: 'avatax-code'
+      securedConfiguration:
+        - key: CTP_PROJECT_KEY
+          description: commercetools Composable Commerce project key
+          required: true
+        - key: CTP_CLIENT_ID
+          description: commercetools Composable Commerce client ID
+          required: true
+        - key: CTP_CLIENT_SECRET
+          description: commercetools Composable Commerce client secret
+          required: true
+        - key: CTP_SCOPE
+          description: commercetools Composable Commerce client scope
+          required: true
+        - key: AVALARA_USERNAME
+          description: Avalara Backoffice Account Number
+          required: true
+        - key: AVALARA_PASSWORD
+          description: Avalara Backoffice License Key
+          required: true
+        - key: AVALARA_COMPANY_CODE
+          description: Avalara Backoffice Company Code
+          required: true
+        - key: AVALARA_ENV
+          description: Avalara Backoffice Environment
+          required: true
